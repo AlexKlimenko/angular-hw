@@ -10,7 +10,6 @@ export default class Octal extends Converter implements IConverter {
 
   public convertTo(num: number): string {
     if (num === 0 || !num) {
-
       console.log('Enter a number greater than zero');
       return;
     }
@@ -18,18 +17,16 @@ export default class Octal extends Converter implements IConverter {
   }
 
   public convertFrom(str: string): number {
-    const getArrWithoutWrongDigits: string[] = str.split('').reverse().map((el) => {
+    const getArrWithoutWrongDigits: string[] = str.split('').reverse().map(el => {
 
-      el = el.charCodeAt(0) === 56 || el.charCodeAt(0) === 57
+      return el = el.charCodeAt(0) === 56 || el.charCodeAt(0) === 57
         ?
         'NaN'
         :
         el;
 
-      return el;
     });
 
     return this.getNumberFromString(getArrWithoutWrongDigits, 8);
   }
 }
-

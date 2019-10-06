@@ -19,7 +19,11 @@ class Binary implements IConverter {
     let len = str.length;
     // tslint:disable-next-line:no-increment-decrement
     for (; len--;) {
-      convertedNumber += str[len] === '1' ? bit : 0;
+      convertedNumber += str[len] === '1'
+        ?
+        bit
+        :
+        0;
       // tslint:disable-next-line:no-bitwise
       bit <<= 1;
     }
