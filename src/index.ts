@@ -36,7 +36,8 @@ class GetForecast {
         return Object.values(res)
       })
       .then(res => this.sortByFrequency(res))
-      .then(res => console.log(`Most often repeated weather forecast is ${res[0]}`));
+      .then(res => console.log(`Most often repeated weather forecast is ${res[0]}`))
+      .catch(err => console.log(err));
   }
 
   private sortByFrequency(forecastList: any[]) {
