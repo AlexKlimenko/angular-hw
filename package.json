@@ -1,19 +1,23 @@
 {
-  "name": "angular-hw",
-  "version": "0.0.0",
-  "devDependencies": {
-    "tslint": "^5.20.0",
-    "tslint-config-airbnb": "^5.11.2",
-    "typescript": "^3.6.3"
+  "name": "homework_angular_1_ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "rxjs": "^6.5.3"
   },
+  "devDependencies": {},
   "scripts": {
-    "start": "tsc",
-    "watch": "tsc --watch",
-    "tslint": "node_modules/.bin/tslint -p tsconfig.json"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "engines": {
-    "node": "10"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexKlimenko/angular-hw.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexKlimenko/angular-hw/issues"
+  },
+  "homepage": "https://github.com/AlexKlimenko/angular-hw#readme"
 }
