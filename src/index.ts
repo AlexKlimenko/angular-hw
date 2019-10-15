@@ -20,6 +20,7 @@ class GetForecast {
       }
       setTimeout(() => {
         resolve(this.forecastList[index]);
+        // tslint:disable-next-line:align
       }, this.getRandomInteger());
     });
   }
@@ -32,8 +33,8 @@ class GetForecast {
 
   public getOftenOfRandomForecasts(numOfElements: number) {
     Promise.all(this.getPromiseList(numOfElements))
-      .then(res => {
-        return Object.values(res)
+      .then((res) => {
+        return Object.values(res);
       })
       .then(res => this.sortByFrequency(res))
       .then(res => console.log(`Most often repeated weather forecast is ${res[0]}`))
@@ -43,12 +44,14 @@ class GetForecast {
   private sortByFrequency(forecastList: any[]) {
     const frequency: { [k: string]: number } = {};
     forecastList.forEach(value => frequency[value] = 0);
+    // tslint:disable-next-line:no-increment-decrement
     const uniques = forecastList.filter(value => ++frequency[value] === 1);
     return uniques.sort((a, b) => (frequency[b] - frequency[a]));
   }
 
   private getPromiseList(numOfElements: number): any[] {
     const arrOfPromises1 = [];
+    // tslint:disable-next-line:no-increment-decrement
     for (let i = 0; i < numOfElements; i++) {
       arrOfPromises1.push(this.getRandomForecast());
     }
