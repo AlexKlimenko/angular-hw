@@ -347,15 +347,14 @@
                     this.headerText = 'Homework_6';
                     this.galleryImg = '../../assets/img/photo_1_large.jpg';
                     this.photos = [
-                        '../../assets/img/photo_1.jpg',
-                        '../../assets/img/photo_2.jpg',
-                        '../../assets/img/photo_3.jpg',
-                        '../../assets/img/photo_4.jpg'
+                        'assets/img/photo_1.jpg',
+                        'assets/img/photo_2.jpg',
+                        'assets/img/photo_3.jpg',
+                        'assets/img/photo_4.jpg'
                     ];
                 }
                 AppComponent.prototype.handler = function ($event) {
-                    // this.galleryImg = `${$event.slice(0, -4)}_large.jpg`;
-                    this.galleryImg = "../../assets/img/photo_" + ($event + 1) + "_large.jpg";
+                    this.galleryImg = $event.slice(0, -4) + "_large.jpg";
                 };
                 return AppComponent;
             }());
@@ -419,10 +418,6 @@
                 function GalleryComponent() {
                     this.photoSrc = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
                 }
-                // public photo1 = '../../assets/img/photo_1.jpg';
-                // public photo2 = '../../assets/img/photo_2.jpg';
-                // public photo3 = '../../assets/img/photo_3.jpg';
-                // public photo4 = '../../assets/img/photo_4.jpg';
                 GalleryComponent.prototype.clickHandler = function (srcImg) {
                     this.photoSrc.emit(srcImg);
                 };
@@ -437,7 +432,7 @@
             GalleryComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
                     selector: 'app-gallery-component',
-                    template: "\n    <div class=\"gallery-wrap\">\n      <img [src]=\"photos[0]\" alt=\"photo1\" (click)=\"clickHandler(0)\">\n      <img [src]=\"photos[1]\" alt=\"photo2\" (click)=\"clickHandler(1)\">\n      <img [src]=\"photos[2]\" alt=\"photo3\" (click)=\"clickHandler(2)\">\n      <img [src]=\"photos[3]\" alt=\"photo4\" (click)=\"clickHandler(3)\">\n    </div>\n  ",
+                    template: "\n    <div class=\"gallery-wrap\">\n      <img [src]=\"photos[0]\" alt=\"photo1\" (click)=\"clickHandler(photos[0])\">\n      <img [src]=\"photos[1]\" alt=\"photo2\" (click)=\"clickHandler(photos[1])\">\n      <img [src]=\"photos[2]\" alt=\"photo3\" (click)=\"clickHandler(photos[2])\">\n      <img [src]=\"photos[3]\" alt=\"photo4\" (click)=\"clickHandler(photos[3])\">\n    </div>\n  ",
                     styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./style.css */ "./src/app/gallery/style.css")).default]
                 })
             ], GalleryComponent);

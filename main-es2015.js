@@ -284,15 +284,14 @@ let AppComponent = class AppComponent {
         this.headerText = 'Homework_6';
         this.galleryImg = '../../assets/img/photo_1_large.jpg';
         this.photos = [
-            '../../assets/img/photo_1.jpg',
-            '../../assets/img/photo_2.jpg',
-            '../../assets/img/photo_3.jpg',
-            '../../assets/img/photo_4.jpg'
+            'assets/img/photo_1.jpg',
+            'assets/img/photo_2.jpg',
+            'assets/img/photo_3.jpg',
+            'assets/img/photo_4.jpg'
         ];
     }
     handler($event) {
-        // this.galleryImg = `${$event.slice(0, -4)}_large.jpg`;
-        this.galleryImg = `../../assets/img/photo_${$event + 1}_large.jpg`;
+        this.galleryImg = `${$event.slice(0, -4)}_large.jpg`;
     }
 };
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -372,10 +371,6 @@ let GalleryComponent = class GalleryComponent {
     constructor() {
         this.photoSrc = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
-    // public photo1 = '../../assets/img/photo_1.jpg';
-    // public photo2 = '../../assets/img/photo_2.jpg';
-    // public photo3 = '../../assets/img/photo_3.jpg';
-    // public photo4 = '../../assets/img/photo_4.jpg';
     clickHandler(srcImg) {
         this.photoSrc.emit(srcImg);
     }
@@ -391,10 +386,10 @@ GalleryComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         selector: 'app-gallery-component',
         template: `
     <div class="gallery-wrap">
-      <img [src]="photos[0]" alt="photo1" (click)="clickHandler(0)">
-      <img [src]="photos[1]" alt="photo2" (click)="clickHandler(1)">
-      <img [src]="photos[2]" alt="photo3" (click)="clickHandler(2)">
-      <img [src]="photos[3]" alt="photo4" (click)="clickHandler(3)">
+      <img [src]="photos[0]" alt="photo1" (click)="clickHandler(photos[0])">
+      <img [src]="photos[1]" alt="photo2" (click)="clickHandler(photos[1])">
+      <img [src]="photos[2]" alt="photo3" (click)="clickHandler(photos[2])">
+      <img [src]="photos[3]" alt="photo4" (click)="clickHandler(photos[3])">
     </div>
   `,
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./style.css */ "./src/app/gallery/style.css")).default]
