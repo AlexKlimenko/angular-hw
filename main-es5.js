@@ -345,7 +345,7 @@
             var AppComponent = /** @class */ (function () {
                 function AppComponent() {
                     this.headerText = 'Homework_6';
-                    this.galleryImg = '../../assets/img/photo_1_large.jpg';
+                    this.galleryImg = 'assets/img/photo_1_large.jpg';
                     this.photos = [
                         'assets/img/photo_1.jpg',
                         'assets/img/photo_2.jpg',
