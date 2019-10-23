@@ -53,7 +53,7 @@ publisher2.subscribe((val) => {
 });
 
 // !3//////////////////////////////////
-const observerInterval = (val) => {
+const observerInterval = (val): any => {
   Observable.create((observer) => {
     let counter = 0;
     setInterval(() => {
