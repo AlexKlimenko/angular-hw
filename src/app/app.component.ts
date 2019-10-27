@@ -3,13 +3,15 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <h2>{{headerText}}</h2>
+    <h2>{{ headerText }}</h2>
     <app-img-component [selectedPhoto]="galleryImg"></app-img-component>
-    <app-gallery-component [photos]="photos" (photoSrc)=handler($event)></app-gallery-component>
+    <app-gallery-component
+      [photos]="photos"
+      (photoSrc)="handler($event)"
+    ></app-gallery-component>
   `,
   styleUrls: ['./app.component.css']
 })
-
 class AppComponent {
   public headerText = 'Homework_6';
   public galleryImg = 'assets/img/photo_1_large.jpg';
