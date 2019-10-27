@@ -4,14 +4,11 @@ import { Component, Input } from '@angular/core';
   selector: 'app-img-component',
   template: `
     <div class="img-wrap">
-      <img [src]="selectedPhoto" alt="selectedPhoto">
+      <img [src]="selectedPhoto" alt="selectedPhoto" />
     </div>
   `,
-  styleUrls: [
-    './style.css'
-  ]
+  styleUrls: ['./img.component.css']
 })
-
 export class ImgComponent {
   @Input()
   public selectedPhoto: string;
