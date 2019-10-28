@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-img-component',
+  selector: 'app-img',
   template: `
     <div class="img-wrap">
       <img [src]="selectedPhoto" alt="selectedPhoto" />

@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-gallery-component',
+  selector: 'app-gallery',
   template: `
     <div class="gallery-wrap">
       <img [src]="photos[0]" alt="photo1" (click)="clickHandler(photos[0])" />
@@ -19,7 +19,7 @@ export class GalleryComponent {
   @Output()
   public photoSrc: EventEmitter<string> = new EventEmitter();
 
-  public clickHandler(srcImg: string): void {
-    this.photoSrc.emit(srcImg);
+  public clickHandler(imgSrc: string): void {
+    this.photoSrc.emit(imgSrc);
   }
 }
