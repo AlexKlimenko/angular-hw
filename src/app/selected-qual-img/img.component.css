@@ -1,0 +1,9 @@
+.img-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.img-wrap img {
+  width: 60%;
+}
