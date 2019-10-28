@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ImageUpdateService } from './image-update.service/image-update.service';
 
@@ -11,7 +11,7 @@ import { ImageUpdateService } from './image-update.service/image-update.service'
   `,
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements DoCheck, OnInit, OnDestroy {
+export class AppComponent implements OnInit, OnDestroy {
   public headerText = 'Homework_7';
   public photos: string[] = [];
   public galleryImg: string;
@@ -20,21 +20,22 @@ export class AppComponent implements DoCheck, OnInit, OnDestroy {
   constructor(private imageUpdateService: ImageUpdateService) {}
 
   public handler($event: string): void {
-    this.galleryImg = `${$event.slice(0, -4)}_large.jpg`;
+    this.listener.unsubscribe();
+    clearInterval();
+    this.galleryImg = $event;
+    setTimeout(() => {
+      this.listener = this.imageUpdateService.getRandomData.subscribe(
+        (data: string) => {
+          this.galleryImg = data;
+        }
+      );
+      // tslint:disable-next-line:align
+    }, 6000);
   }
 
   ngOnInit(): void {
     this.photos = this.imageUpdateService.getData();
-    this.galleryImg = this.photos[4];
-    this.listener = this.imageUpdateService.getRandomData.subscribe(
-      (data: string) => {
-        this.galleryImg = data;
-      }
-    );
-  }
-
-  ngDoCheck(): void {
-    this.listener.unsubscribe();
+    this.galleryImg = this.photos[0];
     this.listener = this.imageUpdateService.getRandomData.subscribe(
       (data: string) => {
         this.galleryImg = data;
