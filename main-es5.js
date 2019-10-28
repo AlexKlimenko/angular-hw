@@ -328,7 +328,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("h2 {\r\n  text-align: center;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7QUFDcEIiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImgyIHtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn0iXX0= */");
+            /* harmony default export */ __webpack_exports__["default"] = ("h2 {\r\n  text-align: center;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7QUFDcEIiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImgyIHtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuIl19 */");
             /***/ 
         }),
         /***/ "./src/app/app.component.ts": 
@@ -342,26 +342,45 @@
             /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function () { return AppComponent; });
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+            /* harmony import */ var _image_update_service_image_update_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./image-update.service/image-update.service */ "./src/app/image-update.service/image-update.service.ts");
             var AppComponent = /** @class */ (function () {
-                function AppComponent() {
-                    this.headerText = 'Homework_6';
-                    this.galleryImg = 'assets/img/photo_1_large.jpg';
-                    this.photos = [
-                        'assets/img/photo_1.jpg',
-                        'assets/img/photo_2.jpg',
-                        'assets/img/photo_3.jpg',
-                        'assets/img/photo_4.jpg'
-                    ];
+                function AppComponent(imageUpdateService) {
+                    this.imageUpdateService = imageUpdateService;
+                    this.headerText = 'Homework_7';
+                    this.photos = [];
                 }
                 AppComponent.prototype.handler = function ($event) {
-                    this.galleryImg = $event.slice(0, -4) + "_large.jpg";
+                    var _this = this;
+                    this.listener.unsubscribe();
+                    clearInterval();
+                    this.galleryImg = $event;
+                    setTimeout(function () {
+                        _this.listener = _this.imageUpdateService.getRandomData.subscribe(function (data) {
+                            _this.galleryImg = data;
+                        });
+                        // tslint:disable-next-line:align
+                    }, 6000);
+                };
+                AppComponent.prototype.ngOnInit = function () {
+                    var _this = this;
+                    this.photos = this.imageUpdateService.getData();
+                    this.galleryImg = this.photos[0];
+                    this.listener = this.imageUpdateService.getRandomData.subscribe(function (data) {
+                        _this.galleryImg = data;
+                    });
+                };
+                AppComponent.prototype.ngOnDestroy = function () {
+                    this.listener.unsubscribe();
                 };
                 return AppComponent;
             }());
+            AppComponent.ctorParameters = function () { return [
+                { type: _image_update_service_image_update_service__WEBPACK_IMPORTED_MODULE_2__["ImageUpdateService"] }
+            ]; };
             AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
                     selector: 'app-root',
-                    template: "\n    <h2>{{headerText}}</h2>\n    <app-img-component [selectedPhoto]=\"galleryImg\"></app-img-component>\n    <app-gallery-component [photos]=\"photos\" (photoSrc)=handler($event)></app-gallery-component>\n  ",
+                    template: "\n    <h2>{{ headerText }}</h2>\n    <app-img [selectedPhoto]=\"galleryImg\"></app-img>\n    <app-gallery [photos]=\"photos\" (photoSrc)=\"handler($event)\"></app-gallery>\n  ",
                     styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")).default]
                 })
             ], AppComponent);
@@ -382,6 +401,7 @@
             /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
             /* harmony import */ var _gallery_gallery_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./gallery/gallery.component */ "./src/app/gallery/gallery.component.ts");
             /* harmony import */ var _selected_qual_img_img_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./selected-qual-img/img.component */ "./src/app/selected-qual-img/img.component.ts");
+            /* harmony import */ var _image_update_service_image_update_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./image-update.service/image-update.service */ "./src/app/image-update.service/image-update.service.ts");
             var AppModule = /** @class */ (function () {
                 function AppModule() {
                 }
@@ -389,18 +409,23 @@
             }());
             AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-                    declarations: [
-                        _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
-                        _gallery_gallery_component__WEBPACK_IMPORTED_MODULE_4__["GalleryComponent"],
-                        _selected_qual_img_img_component__WEBPACK_IMPORTED_MODULE_5__["ImgComponent"]
-                    ],
-                    imports: [
-                        _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"]
-                    ],
-                    providers: [],
+                    declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _gallery_gallery_component__WEBPACK_IMPORTED_MODULE_4__["GalleryComponent"], _selected_qual_img_img_component__WEBPACK_IMPORTED_MODULE_5__["ImgComponent"]],
+                    imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"]],
+                    providers: [_image_update_service_image_update_service__WEBPACK_IMPORTED_MODULE_6__["ImageUpdateService"]],
                     bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
                 })
             ], AppModule);
+            /***/ 
+        }),
+        /***/ "./src/app/gallery/gallery.component.css": 
+        /*!***********************************************!*\
+          !*** ./src/app/gallery/gallery.component.css ***!
+          \***********************************************/
+        /*! exports provided: default */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony default export */ __webpack_exports__["default"] = (".gallery-wrap {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-around;\r\n  margin: 20px;\r\n}\r\n\r\n.gallery-wrap img {\r\n  width: 20%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ2FsbGVyeS9nYWxsZXJ5LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0VBQ2IsbUJBQW1CO0VBQ25CLDZCQUE2QjtFQUM3QixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxVQUFVO0FBQ1oiLCJmaWxlIjoic3JjL2FwcC9nYWxsZXJ5L2dhbGxlcnkuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5nYWxsZXJ5LXdyYXAge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IHJvdztcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWFyb3VuZDtcclxuICBtYXJnaW46IDIwcHg7XHJcbn1cclxuXHJcbi5nYWxsZXJ5LXdyYXAgaW1nIHtcclxuICB3aWR0aDogMjAlO1xyXG59XHJcbiJdfQ== */");
             /***/ 
         }),
         /***/ "./src/app/gallery/gallery.component.ts": 
@@ -418,8 +443,8 @@
                 function GalleryComponent() {
                     this.photoSrc = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
                 }
-                GalleryComponent.prototype.clickHandler = function (srcImg) {
-                    this.photoSrc.emit(srcImg);
+                GalleryComponent.prototype.clickHandler = function (imgSrc) {
+                    this.photoSrc.emit(imgSrc);
                 };
                 return GalleryComponent;
             }());
@@ -431,22 +456,60 @@
             ], GalleryComponent.prototype, "photoSrc", void 0);
             GalleryComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-                    selector: 'app-gallery-component',
-                    template: "\n    <div class=\"gallery-wrap\">\n      <img [src]=\"photos[0]\" alt=\"photo1\" (click)=\"clickHandler(photos[0])\">\n      <img [src]=\"photos[1]\" alt=\"photo2\" (click)=\"clickHandler(photos[1])\">\n      <img [src]=\"photos[2]\" alt=\"photo3\" (click)=\"clickHandler(photos[2])\">\n      <img [src]=\"photos[3]\" alt=\"photo4\" (click)=\"clickHandler(photos[3])\">\n    </div>\n  ",
-                    styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./style.css */ "./src/app/gallery/style.css")).default]
+                    selector: 'app-gallery',
+                    template: "\n    <div class=\"gallery-wrap\">\n      <img [src]=\"photos[0]\" alt=\"photo1\" (click)=\"clickHandler(photos[0])\" />\n      <img [src]=\"photos[1]\" alt=\"photo2\" (click)=\"clickHandler(photos[1])\" />\n      <img [src]=\"photos[2]\" alt=\"photo3\" (click)=\"clickHandler(photos[2])\" />\n      <img [src]=\"photos[3]\" alt=\"photo4\" (click)=\"clickHandler(photos[3])\" />\n    </div>\n  ",
+                    styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./gallery.component.css */ "./src/app/gallery/gallery.component.css")).default]
                 })
             ], GalleryComponent);
             /***/ 
         }),
-        /***/ "./src/app/gallery/style.css": 
-        /*!***********************************!*\
-          !*** ./src/app/gallery/style.css ***!
-          \***********************************/
+        /***/ "./src/app/image-update.service/image-update.service.ts": 
+        /*!**************************************************************!*\
+          !*** ./src/app/image-update.service/image-update.service.ts ***!
+          \**************************************************************/
+        /*! exports provided: ImageUpdateService */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageUpdateService", function () { return ImageUpdateService; });
+            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+            /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+            var floor = Math.floor, random = Math.random;
+            var ImageUpdateService = /** @class */ (function () {
+                function ImageUpdateService() {
+                    var _this = this;
+                    this.data = [
+                        'assets/img/photo_1.jpg',
+                        'assets/img/photo_2.jpg',
+                        'assets/img/photo_3.jpg',
+                        'assets/img/photo_4.jpg'
+                    ];
+                    this.getRandomData = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (emitter) {
+                        setInterval(function () {
+                            emitter.next(_this.data[floor(random() * 4)]);
+                            // tslint:disable-next-line:align
+                        }, 6000);
+                    });
+                }
+                ImageUpdateService.prototype.getData = function () {
+                    return this.data;
+                };
+                ImageUpdateService.prototype.stopInterval = function () {
+                    clearInterval();
+                };
+                return ImageUpdateService;
+            }());
+            /***/ 
+        }),
+        /***/ "./src/app/selected-qual-img/img.component.css": 
+        /*!*****************************************************!*\
+          !*** ./src/app/selected-qual-img/img.component.css ***!
+          \*****************************************************/
         /*! exports provided: default */
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = (".gallery-wrap {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-around;\r\n  margin: 20px;\r\n}\r\n\r\n.gallery-wrap img {\r\n  width: 20%;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ2FsbGVyeS9zdHlsZS5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0VBQ2IsbUJBQW1CO0VBQ25CLDZCQUE2QjtFQUM3QixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxVQUFVO0FBQ1oiLCJmaWxlIjoic3JjL2FwcC9nYWxsZXJ5L3N0eWxlLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5nYWxsZXJ5LXdyYXAge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IHJvdztcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWFyb3VuZDtcclxuICBtYXJnaW46IDIwcHg7XHJcbn1cclxuXHJcbi5nYWxsZXJ5LXdyYXAgaW1nIHtcclxuICB3aWR0aDogMjAlO1xyXG59Il19 */");
+            /* harmony default export */ __webpack_exports__["default"] = (".img-wrap {\r\n  display: flex;\r\n  justify-content: center;\r\n  margin: 20px;\r\n}\r\n\r\n.img-wrap img {\r\n  width: 60%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2VsZWN0ZWQtcXVhbC1pbWcvaW1nLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLFlBQVk7QUFDZDs7QUFFQTtFQUNFLFVBQVU7QUFDWiIsImZpbGUiOiJzcmMvYXBwL3NlbGVjdGVkLXF1YWwtaW1nL2ltZy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmltZy13cmFwIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIG1hcmdpbjogMjBweDtcclxufVxyXG5cclxuLmltZy13cmFwIGltZyB7XHJcbiAgd2lkdGg6IDYwJTtcclxufVxyXG4iXX0= */");
             /***/ 
         }),
         /***/ "./src/app/selected-qual-img/img.component.ts": 
@@ -470,22 +533,11 @@
             ], ImgComponent.prototype, "selectedPhoto", void 0);
             ImgComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-                    selector: 'app-img-component',
-                    template: "\n    <div class=\"img-wrap\">\n      <img [src]=\"selectedPhoto\" alt=\"selectedPhoto\">\n    </div>\n  ",
-                    styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./style.css */ "./src/app/selected-qual-img/style.css")).default]
+                    selector: 'app-img',
+                    template: "\n    <div class=\"img-wrap\">\n      <img [src]=\"selectedPhoto\" alt=\"selectedPhoto\" />\n    </div>\n  ",
+                    styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./img.component.css */ "./src/app/selected-qual-img/img.component.css")).default]
                 })
             ], ImgComponent);
-            /***/ 
-        }),
-        /***/ "./src/app/selected-qual-img/style.css": 
-        /*!*********************************************!*\
-          !*** ./src/app/selected-qual-img/style.css ***!
-          \*********************************************/
-        /*! exports provided: default */
-        /***/ (function (module, __webpack_exports__, __webpack_require__) {
-            "use strict";
-            __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = (".img-wrap {\r\n  display: flex;\r\n  justify-content: center;\r\n  margin: 20px;\r\n}\r\n\r\n.img-wrap img {\r\n  width: 60%;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2VsZWN0ZWQtcXVhbC1pbWcvc3R5bGUuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBYTtFQUNiLHVCQUF1QjtFQUN2QixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxVQUFVO0FBQ1oiLCJmaWxlIjoic3JjL2FwcC9zZWxlY3RlZC1xdWFsLWltZy9zdHlsZS5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaW1nLXdyYXAge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgbWFyZ2luOiAyMHB4O1xyXG59XHJcblxyXG4uaW1nLXdyYXAgaW1nIHtcclxuICB3aWR0aDogNjAlO1xyXG59Il19 */");
             /***/ 
         }),
         /***/ "./src/environments/environment.ts": 
