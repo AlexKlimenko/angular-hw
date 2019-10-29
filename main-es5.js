@@ -349,22 +349,22 @@
                     this.headerText = 'Homework_7';
                     this.photos = [];
                 }
-                AppComponent.prototype.handler = function ($event) {
+                AppComponent.prototype.subscribe = function () {
                     var _this = this;
-                    this.listener.unsubscribe();
-                    this.service.stopInterval();
-                    this.galleryImg = $event;
                     this.listener = this.service.getRandomData.subscribe(function (data) {
                         _this.galleryImg = data;
                     });
                 };
+                AppComponent.prototype.handler = function ($event) {
+                    this.listener.unsubscribe();
+                    this.service.stopInterval();
+                    this.galleryImg = $event;
+                    this.subscribe();
+                };
                 AppComponent.prototype.ngOnInit = function () {
-                    var _this = this;
                     this.photos = this.service.getData();
                     this.galleryImg = this.photos[0];
-                    this.listener = this.service.getRandomData.subscribe(function (data) {
-                        _this.galleryImg = data;
-                    });
+                    this.subscribe();
                 };
                 AppComponent.prototype.ngOnDestroy = function () {
                     this.listener.unsubscribe();
@@ -486,7 +486,7 @@
                         _this.interval = setInterval(function () {
                             emitter.next(_this.data[floor(random() * 4)]);
                             // tslint:disable-next-line:align
-                        }, 1000);
+                        }, 3000);
                     });
                 }
                 ImageUpdateService.prototype.getData = function () {

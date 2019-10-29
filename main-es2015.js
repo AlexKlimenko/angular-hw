@@ -287,20 +287,21 @@ let AppComponent = class AppComponent {
         this.headerText = 'Homework_7';
         this.photos = [];
     }
-    handler($event) {
-        this.listener.unsubscribe();
-        this.service.stopInterval();
-        this.galleryImg = $event;
+    subscribe() {
         this.listener = this.service.getRandomData.subscribe((data) => {
             this.galleryImg = data;
         });
     }
+    handler($event) {
+        this.listener.unsubscribe();
+        this.service.stopInterval();
+        this.galleryImg = $event;
+        this.subscribe();
+    }
     ngOnInit() {
         this.photos = this.service.getData();
         this.galleryImg = this.photos[0];
-        this.listener = this.service.getRandomData.subscribe((data) => {
-            this.galleryImg = data;
-        });
+        this.subscribe();
     }
     ngOnDestroy() {
         this.listener.unsubscribe();
@@ -452,7 +453,7 @@ class ImageUpdateService {
             this.interval = setInterval(() => {
                 emitter.next(this.data[floor(random() * 4)]);
                 // tslint:disable-next-line:align
-            }, 1000);
+            }, 3000);
         });
     }
     getData() {
