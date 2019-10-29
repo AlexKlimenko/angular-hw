@@ -486,7 +486,7 @@
                         _this.interval = setInterval(function () {
                             emitter.next(_this.data[floor(random() * 4)]);
                             // tslint:disable-next-line:align
-                        }, 3000);
+                        }, 6000);
                     });
                 }
                 ImageUpdateService.prototype.getData = function () {
