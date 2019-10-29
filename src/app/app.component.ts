@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ImageUpdateService } from './image-update.service/image-update.service';
+import { ImageUpdateService } from './services/image-update.service';
 
 @Component({
   selector: 'app-root',

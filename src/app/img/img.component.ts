@@ -2,11 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-img',
-  template: `
-    <div class="img-wrap">
-      <img [src]="selectedPhoto" alt="selectedPhoto" />
-    </div>
-  `,
+  templateUrl: './img.component.html',
   styleUrls: ['./img.component.css']
 })
 export class ImgComponent {

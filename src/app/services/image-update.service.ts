@@ -13,7 +13,7 @@ export class ImageUpdateService {
   public interval = null;
 
   public getRandomData: Observable<string> = new Observable(
-    (emitter: Subscriber<string>) => {
+    (emitter: Subscriber<string>): void => {
       this.interval = setInterval(() => {
         emitter.next(this.data[floor(random() * 4)]);
         // tslint:disable-next-line:align
