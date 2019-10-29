@@ -19,21 +19,23 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(private service: ImageUpdateService) {}
 
-  public handler($event: string): void {
-    this.listener.unsubscribe();
-    this.service.stopInterval();
-    this.galleryImg = $event;
+  public subscribe(): void {
     this.listener = this.service.getRandomData.subscribe((data: string) => {
       this.galleryImg = data;
     });
   }
 
+  public handler($event: string): void {
+    this.listener.unsubscribe();
+    this.service.stopInterval();
+    this.galleryImg = $event;
+    this.subscribe();
+  }
+
   ngOnInit(): void {
     this.photos = this.service.getData();
     this.galleryImg = this.photos[0];
-    this.listener = this.service.getRandomData.subscribe((data: string) => {
-      this.galleryImg = data;
-    });
+    this.subscribe();
   }
 
   ngOnDestroy(): void {

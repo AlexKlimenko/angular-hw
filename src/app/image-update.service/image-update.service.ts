@@ -17,7 +17,7 @@ export class ImageUpdateService {
       this.interval = setInterval(() => {
         emitter.next(this.data[floor(random() * 4)]);
         // tslint:disable-next-line:align
-      }, 1000);
+      }, 3000);
     }
   );
 
