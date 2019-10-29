@@ -17,30 +17,23 @@ export class AppComponent implements OnInit, OnDestroy {
   public galleryImg: string;
   private listener: Subscription;
 
-  constructor(private imageUpdateService: ImageUpdateService) {}
+  constructor(private service: ImageUpdateService) {}
 
   public handler($event: string): void {
     this.listener.unsubscribe();
-    clearInterval();
+    this.service.stopInterval();
     this.galleryImg = $event;
-    setTimeout(() => {
-      this.listener = this.imageUpdateService.getRandomData.subscribe(
-        (data: string) => {
-          this.galleryImg = data;
-        }
-      );
-      // tslint:disable-next-line:align
-    }, 6000);
+    this.listener = this.service.getRandomData.subscribe((data: string) => {
+      this.galleryImg = data;
+    });
   }
 
   ngOnInit(): void {
-    this.photos = this.imageUpdateService.getData();
+    this.photos = this.service.getData();
     this.galleryImg = this.photos[0];
-    this.listener = this.imageUpdateService.getRandomData.subscribe(
-      (data: string) => {
-        this.galleryImg = data;
-      }
-    );
+    this.listener = this.service.getRandomData.subscribe((data: string) => {
+      this.galleryImg = data;
+    });
   }
 
   ngOnDestroy(): void {
