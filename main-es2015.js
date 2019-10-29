@@ -282,26 +282,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AppComponent = class AppComponent {
-    constructor(imageUpdateService) {
-        this.imageUpdateService = imageUpdateService;
+    constructor(service) {
+        this.service = service;
         this.headerText = 'Homework_7';
         this.photos = [];
     }
     handler($event) {
         this.listener.unsubscribe();
-        clearInterval();
+        this.service.stopInterval();
         this.galleryImg = $event;
-        setTimeout(() => {
-            this.listener = this.imageUpdateService.getRandomData.subscribe((data) => {
-                this.galleryImg = data;
-            });
-            // tslint:disable-next-line:align
-        }, 6000);
+        this.listener = this.service.getRandomData.subscribe((data) => {
+            this.galleryImg = data;
+        });
     }
     ngOnInit() {
-        this.photos = this.imageUpdateService.getData();
+        this.photos = this.service.getData();
         this.galleryImg = this.photos[0];
-        this.listener = this.imageUpdateService.getRandomData.subscribe((data) => {
+        this.listener = this.service.getRandomData.subscribe((data) => {
             this.galleryImg = data;
         });
     }
@@ -450,18 +447,20 @@ class ImageUpdateService {
             'assets/img/photo_3.jpg',
             'assets/img/photo_4.jpg'
         ];
+        this.interval = null;
         this.getRandomData = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"]((emitter) => {
-            setInterval(() => {
+            this.interval = setInterval(() => {
                 emitter.next(this.data[floor(random() * 4)]);
                 // tslint:disable-next-line:align
-            }, 6000);
+            }, 1000);
         });
     }
     getData() {
         return this.data;
     }
     stopInterval() {
-        clearInterval();
+        clearInterval(this.interval);
+        this.interval = null;
     }
 }
 

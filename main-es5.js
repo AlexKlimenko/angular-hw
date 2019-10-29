@@ -344,28 +344,25 @@
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
             /* harmony import */ var _image_update_service_image_update_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./image-update.service/image-update.service */ "./src/app/image-update.service/image-update.service.ts");
             var AppComponent = /** @class */ (function () {
-                function AppComponent(imageUpdateService) {
-                    this.imageUpdateService = imageUpdateService;
+                function AppComponent(service) {
+                    this.service = service;
                     this.headerText = 'Homework_7';
                     this.photos = [];
                 }
                 AppComponent.prototype.handler = function ($event) {
                     var _this = this;
                     this.listener.unsubscribe();
-                    clearInterval();
+                    this.service.stopInterval();
                     this.galleryImg = $event;
-                    setTimeout(function () {
-                        _this.listener = _this.imageUpdateService.getRandomData.subscribe(function (data) {
-                            _this.galleryImg = data;
-                        });
-                        // tslint:disable-next-line:align
-                    }, 6000);
+                    this.listener = this.service.getRandomData.subscribe(function (data) {
+                        _this.galleryImg = data;
+                    });
                 };
                 AppComponent.prototype.ngOnInit = function () {
                     var _this = this;
-                    this.photos = this.imageUpdateService.getData();
+                    this.photos = this.service.getData();
                     this.galleryImg = this.photos[0];
-                    this.listener = this.imageUpdateService.getRandomData.subscribe(function (data) {
+                    this.listener = this.service.getRandomData.subscribe(function (data) {
                         _this.galleryImg = data;
                     });
                 };
@@ -484,18 +481,20 @@
                         'assets/img/photo_3.jpg',
                         'assets/img/photo_4.jpg'
                     ];
+                    this.interval = null;
                     this.getRandomData = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (emitter) {
-                        setInterval(function () {
+                        _this.interval = setInterval(function () {
                             emitter.next(_this.data[floor(random() * 4)]);
                             // tslint:disable-next-line:align
-                        }, 6000);
+                        }, 1000);
                     });
                 }
                 ImageUpdateService.prototype.getData = function () {
                     return this.data;
                 };
                 ImageUpdateService.prototype.stopInterval = function () {
-                    clearInterval();
+                    clearInterval(this.interval);
+                    this.interval = null;
                 };
                 return ImageUpdateService;
             }());
