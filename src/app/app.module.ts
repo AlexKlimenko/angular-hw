@@ -3,11 +3,10 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 import { FormsModule } from '@angular/forms';
-import { ConverterToMorze } from './pipes/converter-to-morze.pipe';
-import { ConverterFromMorze } from './pipes/converter-from-morze.pipe';
+import { ConverterMorze } from './pipes/converter-morze.pipe';
 
 @NgModule({
-  declarations: [AppComponent, ConverterToMorze, ConverterFromMorze],
+  declarations: [AppComponent, ConverterMorze],
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent]
