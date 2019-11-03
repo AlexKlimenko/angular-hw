@@ -28,7 +28,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n  <h3>Convert letter to Morze symbol</h3>\r\n  <input type=\"text\" [(ngModel)]=\"letter\" placeholder=\"Input latin letter\" />\r\n  <div class=\"card\">\r\n    <p><strong>Result: </strong>{{ letter | converterToMorze }}</p>\r\n  </div>\r\n  <h3>Convert Morze symbol to latin letter</h3>\r\n  <input\r\n    type=\"text\"\r\n    [(ngModel)]=\"morzeSymbol\"\r\n    placeholder=\"Input Morze symbol\"\r\n  />\r\n  <div class=\"card\">\r\n    <p><strong>Result: </strong>{{ morzeSymbol | converterFromMorze }}</p>\r\n  </div>\r\n</div>\r\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n  <h3>Convert latin letter to Morze symbol</h3>\r\n  <input type=\"text\" [(ngModel)]=\"letter\" placeholder=\"Input latin letter\" />\r\n  <div class=\"card\">\r\n    <p><strong>Result: </strong>{{ letter | converterMorze: 1 }}</p>\r\n  </div>\r\n  <h3>Convert Morze symbol to latin letter</h3>\r\n  <input\r\n    type=\"text\"\r\n    [(ngModel)]=\"morzeSymbol\"\r\n    placeholder=\"Input Morze symbol\"\r\n  />\r\n  <div class=\"card\">\r\n    <p><strong>Result: </strong>{{ morzeSymbol | converterMorze: 2 }}</p>\r\n  </div>\r\n</div>\r\n");
             /***/ 
         }),
         /***/ "./node_modules/tslib/tslib.es6.js": 
@@ -383,8 +383,7 @@
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
             /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
             /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-            /* harmony import */ var _pipes_converter_to_morze_pipe__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pipes/converter-to-morze.pipe */ "./src/app/pipes/converter-to-morze.pipe.ts");
-            /* harmony import */ var _pipes_converter_from_morze_pipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pipes/converter-from-morze.pipe */ "./src/app/pipes/converter-from-morze.pipe.ts");
+            /* harmony import */ var _pipes_converter_morze_pipe__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pipes/converter-morze.pipe */ "./src/app/pipes/converter-morze.pipe.ts");
             var AppModule = /** @class */ (function () {
                 function AppModule() {
                 }
@@ -392,7 +391,7 @@
             }());
             AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-                    declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _pipes_converter_to_morze_pipe__WEBPACK_IMPORTED_MODULE_5__["ConverterToMorze"], _pipes_converter_from_morze_pipe__WEBPACK_IMPORTED_MODULE_6__["ConverterFromMorze"]],
+                    declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _pipes_converter_morze_pipe__WEBPACK_IMPORTED_MODULE_5__["ConverterMorze"]],
                     imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"]],
                     providers: [],
                     bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
@@ -400,22 +399,48 @@
             ], AppModule);
             /***/ 
         }),
-        /***/ "./src/app/pipes/converter-from-morze.pipe.ts": 
-        /*!****************************************************!*\
-          !*** ./src/app/pipes/converter-from-morze.pipe.ts ***!
-          \****************************************************/
-        /*! exports provided: ConverterFromMorze */
+        /***/ "./src/app/pipes/converter-morze.pipe.ts": 
+        /*!***********************************************!*\
+          !*** ./src/app/pipes/converter-morze.pipe.ts ***!
+          \***********************************************/
+        /*! exports provided: ConverterMorze */
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConverterFromMorze", function () { return ConverterFromMorze; });
+            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConverterMorze", function () { return ConverterMorze; });
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-            var ConverterFromMorze = /** @class */ (function () {
-                function ConverterFromMorze() {
+            var ConverterMorze = /** @class */ (function () {
+                function ConverterMorze() {
                 }
-                ConverterFromMorze.prototype.transform = function (letter) {
+                ConverterMorze.prototype.transform = function (letter, typeOfConvert) {
                     var dictionary = {
+                        a: '.-',
+                        b: '-...',
+                        c: '-.-.',
+                        d: '-..',
+                        e: '.',
+                        f: '..-.',
+                        g: '--.',
+                        h: '....',
+                        i: '..',
+                        j: '.---',
+                        k: '-.-',
+                        l: '.-..',
+                        m: '--',
+                        n: '-.',
+                        o: '---',
+                        p: '.--.',
+                        q: '--.-',
+                        r: '.-.',
+                        s: '...',
+                        t: '-',
+                        u: '..-',
+                        v: '...-',
+                        w: '.--',
+                        x: '-..-',
+                        y: '-.--',
+                        z: '--..',
                         '.-': 'a',
                         '-...': 'b',
                         '-.-.': 'c',
@@ -443,87 +468,38 @@
                         '-.--': 'y',
                         '--..': 'z'
                     };
-                    return (letter
-                        .toLowerCase()
-                        .split(' ')
-                        // tslint:disable-next-line:ter-arrow-parens
-                        .map(function (a) { return a
-                        .split(' ')
-                        // tslint:disable-next-line:ter-arrow-parens
-                        .map(function (b) { return dictionary[b] || ''; })
-                        .join(''); })
-                        .join(''));
+                    if (typeOfConvert === 1) {
+                        return (letter
+                            .toLowerCase()
+                            .split('')
+                            // tslint:disable-next-line:ter-arrow-parens
+                            .map(function (a) { return a
+                            .split(' ')
+                            // tslint:disable-next-line:ter-arrow-parens
+                            .map(function (b) { return dictionary[b]; })
+                            .join(''); })
+                            .join(' '));
+                    }
+                    if (typeOfConvert === 2) {
+                        return (letter
+                            .toLowerCase()
+                            .split(' ')
+                            // tslint:disable-next-line:ter-arrow-parens
+                            .map(function (a) { return a
+                            .split(' ')
+                            // tslint:disable-next-line:ter-arrow-parens
+                            .map(function (b) { return dictionary[b] || ''; })
+                            .join(''); })
+                            .join(''));
+                    }
                 };
-                return ConverterFromMorze;
+                return ConverterMorze;
             }());
-            ConverterFromMorze = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+            ConverterMorze = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
-                    name: 'converterFromMorze'
+                    name: 'converterMorze'
                 })
-            ], ConverterFromMorze);
-            /***/ 
-        }),
-        /***/ "./src/app/pipes/converter-to-morze.pipe.ts": 
-        /*!**************************************************!*\
-          !*** ./src/app/pipes/converter-to-morze.pipe.ts ***!
-          \**************************************************/
-        /*! exports provided: ConverterToMorze */
-        /***/ (function (module, __webpack_exports__, __webpack_require__) {
-            "use strict";
-            __webpack_require__.r(__webpack_exports__);
-            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConverterToMorze", function () { return ConverterToMorze; });
-            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-            /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-            var ConverterToMorze = /** @class */ (function () {
-                function ConverterToMorze() {
-                }
-                ConverterToMorze.prototype.transform = function (letter) {
-                    var dictionary = {
-                        a: '.-',
-                        b: '-...',
-                        c: '-.-.',
-                        d: '-..',
-                        e: '.',
-                        f: '..-.',
-                        g: '--.',
-                        h: '....',
-                        i: '..',
-                        j: '.---',
-                        k: '-.-',
-                        l: '.-..',
-                        m: '--',
-                        n: '-.',
-                        o: '---',
-                        p: '.--.',
-                        q: '--.-',
-                        r: '.-.',
-                        s: '...',
-                        t: '-',
-                        u: '..-',
-                        v: '...-',
-                        w: '.--',
-                        x: '-..-',
-                        y: '-.--',
-                        z: '--..'
-                    };
-                    return (letter
-                        .toLowerCase()
-                        .split('')
-                        // tslint:disable-next-line:ter-arrow-parens
-                        .map(function (a) { return a
-                        .split(' ')
-                        // tslint:disable-next-line:ter-arrow-parens
-                        .map(function (b) { return dictionary[b]; })
-                        .join(''); })
-                        .join(' '));
-                };
-                return ConverterToMorze;
-            }());
-            ConverterToMorze = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
-                    name: 'converterToMorze'
-                })
-            ], ConverterToMorze);
+            ], ConverterMorze);
             /***/ 
         }),
         /***/ "./src/environments/environment.ts": 
