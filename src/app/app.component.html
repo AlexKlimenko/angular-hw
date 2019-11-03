@@ -1,0 +1,16 @@
+<div class="container">
+  <h3>Convert letter to Morze symbol</h3>
+  <input type="text" [(ngModel)]="letter" placeholder="Input latin letter" />
+  <div class="card">
+    <p><strong>Result: </strong>{{ letter | converterToMorze }}</p>
+  </div>
+  <h3>Convert Morze symbol to latin letter</h3>
+  <input
+    type="text"
+    [(ngModel)]="morzeSymbol"
+    placeholder="Input Morze symbol"
+  />
+  <div class="card">
+    <p><strong>Result: </strong>{{ morzeSymbol | converterFromMorze }}</p>
+  </div>
+</div>
