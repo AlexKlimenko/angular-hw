@@ -86,7 +86,7 @@ export class ConverterMorze implements PipeTransform {
             a
               .split(' ')
               // tslint:disable-next-line:ter-arrow-parens
-              .map((b) => dictionary[b] || '')
+              .map((b) => dictionary[b])
               .join('')
           )
           .join('')
