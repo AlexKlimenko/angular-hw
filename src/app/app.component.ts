@@ -4,15 +4,11 @@ import { ImageUpdateService } from './services/image-update.service';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <h2>{{ headerText }}</h2>
-    <app-img [selectedPhoto]="galleryImg"></app-img>
-    <app-gallery [photos]="photos" (photoSrc)="handler($event)"></app-gallery>
-  `,
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  public headerText = 'Homework_7';
+  public headerText = 'Homework_9';
   public photos: string[] = [];
   public galleryImg: string;
   private listener: Subscription;

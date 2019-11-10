@@ -5,6 +5,10 @@
   margin: 20px;
 }
 
+.gallery-img {
+  display: flex;
+  justify-content: center;
+}
 .gallery-wrap img {
-  width: 20%;
+  width: 95%;
 }
