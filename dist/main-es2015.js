@@ -23,6 +23,45 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html":
+/*!**************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<h2>{{ headerText }}</h2>\r\n<app-img></app-img>\r\n<app-gallery></app-gallery>\r\n\r\n<!-- <h2>{{ headerText }}</h2>\r\n<app-img [selectedPhoto]=\"galleryImg\"></app-img>\r\n<app-gallery [photos]=\"photos\" (photoSrc)=\"handler($event)\"></app-gallery> -->\r\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/gallery/galery.component.html":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/gallery/galery.component.html ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"gallery-wrap\">\r\n  <div class=\"gallery-item\" *ngFor=\"let galleryItem of imageGallery\">\r\n    <img [src]=\"galleryItem\" (click)=\"clickHandler(galleryItem)\" />\r\n  </div>\r\n</div>\r\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/img/img.component.html":
+/*!******************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/img/img.component.html ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"img-wrap\">\r\n  <img [src]=\"selectedImage\" alt=\"selectedImage\" />\r\n</div>\r\n");
+
+/***/ }),
+
 /***/ "./node_modules/tslib/tslib.es6.js":
 /*!*****************************************!*\
   !*** ./node_modules/tslib/tslib.es6.js ***!
@@ -277,47 +316,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _image_update_service_image_update_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./image-update.service/image-update.service */ "./src/app/image-update.service/image-update.service.ts");
-
 
 
 let AppComponent = class AppComponent {
-    constructor(service) {
-        this.service = service;
-        this.headerText = 'Homework_7';
-        this.photos = [];
-    }
-    subscribe() {
-        this.listener = this.service.getRandomData.subscribe((data) => {
-            this.galleryImg = data;
-        });
-    }
-    handler($event) {
-        this.listener.unsubscribe();
-        this.service.stopInterval();
-        this.galleryImg = $event;
-        this.subscribe();
-    }
-    ngOnInit() {
-        this.photos = this.service.getData();
-        this.galleryImg = this.photos[0];
-        this.subscribe();
-    }
-    ngOnDestroy() {
-        this.listener.unsubscribe();
+    constructor() {
+        this.headerText = 'Homework_9';
     }
 };
-AppComponent.ctorParameters = () => [
-    { type: _image_update_service_image_update_service__WEBPACK_IMPORTED_MODULE_2__["ImageUpdateService"] }
-];
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-root',
-        template: `
-    <h2>{{ headerText }}</h2>
-    <app-img [selectedPhoto]="galleryImg"></app-img>
-    <app-gallery [photos]="photos" (photoSrc)="handler($event)"></app-gallery>
-  `,
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./app.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html")).default,
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")).default]
     })
 ], AppComponent);
@@ -341,8 +350,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _gallery_gallery_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./gallery/gallery.component */ "./src/app/gallery/gallery.component.ts");
-/* harmony import */ var _selected_qual_img_img_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./selected-qual-img/img.component */ "./src/app/selected-qual-img/img.component.ts");
-/* harmony import */ var _image_update_service_image_update_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./image-update.service/image-update.service */ "./src/app/image-update.service/image-update.service.ts");
+/* harmony import */ var _img_img_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./img/img.component */ "./src/app/img/img.component.ts");
+/* harmony import */ var _services_image_update_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services/image-update.service */ "./src/app/services/image-update.service.ts");
 
 
 
@@ -354,9 +363,9 @@ let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _gallery_gallery_component__WEBPACK_IMPORTED_MODULE_4__["GalleryComponent"], _selected_qual_img_img_component__WEBPACK_IMPORTED_MODULE_5__["ImgComponent"]],
+        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _gallery_gallery_component__WEBPACK_IMPORTED_MODULE_4__["GalleryComponent"], _img_img_component__WEBPACK_IMPORTED_MODULE_5__["ImgComponent"]],
         imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"]],
-        providers: [_image_update_service_image_update_service__WEBPACK_IMPORTED_MODULE_6__["ImageUpdateService"]],
+        providers: [_services_image_update_service__WEBPACK_IMPORTED_MODULE_6__["ImageUpdateService"]],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
     })
 ], AppModule);
@@ -374,7 +383,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".gallery-wrap {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-around;\r\n  margin: 20px;\r\n}\r\n\r\n.gallery-wrap img {\r\n  width: 20%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ2FsbGVyeS9nYWxsZXJ5LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0VBQ2IsbUJBQW1CO0VBQ25CLDZCQUE2QjtFQUM3QixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxVQUFVO0FBQ1oiLCJmaWxlIjoic3JjL2FwcC9nYWxsZXJ5L2dhbGxlcnkuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5nYWxsZXJ5LXdyYXAge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IHJvdztcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWFyb3VuZDtcclxuICBtYXJnaW46IDIwcHg7XHJcbn1cclxuXHJcbi5nYWxsZXJ5LXdyYXAgaW1nIHtcclxuICB3aWR0aDogMjAlO1xyXG59XHJcbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".gallery-wrap {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-around;\r\n  margin: 20px;\r\n}\r\n\r\n.gallery-img {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.gallery-wrap img {\r\n  width: 95%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ2FsbGVyeS9nYWxsZXJ5LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0VBQ2IsbUJBQW1CO0VBQ25CLDZCQUE2QjtFQUM3QixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsdUJBQXVCO0FBQ3pCOztBQUNBO0VBQ0UsVUFBVTtBQUNaIiwiZmlsZSI6InNyYy9hcHAvZ2FsbGVyeS9nYWxsZXJ5LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZ2FsbGVyeS13cmFwIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1hcm91bmQ7XHJcbiAgbWFyZ2luOiAyMHB4O1xyXG59XHJcblxyXG4uZ2FsbGVyeS1pbWcge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbn1cclxuLmdhbGxlcnktd3JhcCBpbWcge1xyXG4gIHdpZHRoOiA5NSU7XHJcbn1cclxuIl19 */");
 
 /***/ }),
 
@@ -390,33 +399,49 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GalleryComponent", function() { return GalleryComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_image_update_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/image-update.service */ "./src/app/services/image-update.service.ts");
+/* harmony import */ var _redux_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../redux/store */ "./src/app/redux/store.ts");
+/* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../redux/actions */ "./src/app/redux/actions.ts");
+
+
+
 
 
 let GalleryComponent = class GalleryComponent {
-    constructor() {
-        this.photoSrc = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+    constructor(service) {
+        this.service = service;
+        this.imageGallery = [];
     }
-    clickHandler(imgSrc) {
-        this.photoSrc.emit(imgSrc);
+    imageHandler(url) {
+        _redux_store__WEBPACK_IMPORTED_MODULE_3__["default"].dispatch({ type: _redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].SELECTIMG, payload: url });
+    }
+    clickHandler(url) {
+        this.listener.unsubscribe();
+        this.service.stopInterval();
+        this.imageHandler(url);
+        this.subscribe();
+    }
+    subscribe() {
+        this.listener = this.service.getRandomData.subscribe((data) => {
+            this.imageHandler(data);
+        });
+    }
+    ngOnInit() {
+        this.imageGallery = this.service.getData();
+        this.imageHandler(this.imageGallery[0]);
+        this.subscribe();
+    }
+    ngOnDestroy() {
+        this.listener.unsubscribe();
     }
 };
-tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
-], GalleryComponent.prototype, "photos", void 0);
-tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()
-], GalleryComponent.prototype, "photoSrc", void 0);
+GalleryComponent.ctorParameters = () => [
+    { type: _services_image_update_service__WEBPACK_IMPORTED_MODULE_2__["ImageUpdateService"] }
+];
 GalleryComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-gallery',
-        template: `
-    <div class="gallery-wrap">
-      <img [src]="photos[0]" alt="photo1" (click)="clickHandler(photos[0])" />
-      <img [src]="photos[1]" alt="photo2" (click)="clickHandler(photos[1])" />
-      <img [src]="photos[2]" alt="photo3" (click)="clickHandler(photos[2])" />
-      <img [src]="photos[3]" alt="photo4" (click)="clickHandler(photos[3])" />
-    </div>
-  `,
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./galery.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/gallery/galery.component.html")).default,
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./gallery.component.css */ "./src/app/gallery/gallery.component.css")).default]
     })
 ], GalleryComponent);
@@ -425,10 +450,125 @@ GalleryComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/image-update.service/image-update.service.ts":
-/*!**************************************************************!*\
-  !*** ./src/app/image-update.service/image-update.service.ts ***!
-  \**************************************************************/
+/***/ "./src/app/img/img.component.css":
+/*!***************************************!*\
+  !*** ./src/app/img/img.component.css ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".img-wrap {\r\n  display: flex;\r\n  justify-content: center;\r\n  margin: 20px;\r\n}\r\n\r\n.img-wrap img {\r\n  width: 60%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaW1nL2ltZy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBYTtFQUNiLHVCQUF1QjtFQUN2QixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxVQUFVO0FBQ1oiLCJmaWxlIjoic3JjL2FwcC9pbWcvaW1nLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaW1nLXdyYXAge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgbWFyZ2luOiAyMHB4O1xyXG59XHJcblxyXG4uaW1nLXdyYXAgaW1nIHtcclxuICB3aWR0aDogNjAlO1xyXG59XHJcbiJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/img/img.component.ts":
+/*!**************************************!*\
+  !*** ./src/app/img/img.component.ts ***!
+  \**************************************/
+/*! exports provided: ImgComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImgComponent", function() { return ImgComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _redux_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../redux/store */ "./src/app/redux/store.ts");
+
+
+
+let ImgComponent = class ImgComponent {
+    ngDoCheck() {
+        _redux_store__WEBPACK_IMPORTED_MODULE_2__["default"].subscribe(() => {
+            this.selectedImage = _redux_store__WEBPACK_IMPORTED_MODULE_2__["default"].getState();
+        });
+    }
+};
+ImgComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-img',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./img.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/img/img.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./img.component.css */ "./src/app/img/img.component.css")).default]
+    })
+], ImgComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/redux/actions.ts":
+/*!**********************************!*\
+  !*** ./src/app/redux/actions.ts ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    SELECTIMG: 'SELECTIMG'
+});
+
+
+/***/ }),
+
+/***/ "./src/app/redux/reducer.ts":
+/*!**********************************!*\
+  !*** ./src/app/redux/reducer.ts ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return reducer; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actions */ "./src/app/redux/actions.ts");
+
+
+const { SELECTIMG } = _actions__WEBPACK_IMPORTED_MODULE_1__["default"];
+function reducer(state = '', action) {
+    switch (action.type) {
+        case SELECTIMG:
+            // tslint:disable-next-line:no-parameter-reassignment
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/app/redux/store.ts":
+/*!********************************!*\
+  !*** ./src/app/redux/store.ts ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var _reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./reducer */ "./src/app/redux/reducer.ts");
+
+
+
+const store = Object(redux__WEBPACK_IMPORTED_MODULE_1__["createStore"])(_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (store);
+
+
+/***/ }),
+
+/***/ "./src/app/services/image-update.service.ts":
+/*!**************************************************!*\
+  !*** ./src/app/services/image-update.service.ts ***!
+  \**************************************************/
 /*! exports provided: ImageUpdateService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -464,54 +604,6 @@ class ImageUpdateService {
         this.interval = null;
     }
 }
-
-
-/***/ }),
-
-/***/ "./src/app/selected-qual-img/img.component.css":
-/*!*****************************************************!*\
-  !*** ./src/app/selected-qual-img/img.component.css ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".img-wrap {\r\n  display: flex;\r\n  justify-content: center;\r\n  margin: 20px;\r\n}\r\n\r\n.img-wrap img {\r\n  width: 60%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2VsZWN0ZWQtcXVhbC1pbWcvaW1nLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLFlBQVk7QUFDZDs7QUFFQTtFQUNFLFVBQVU7QUFDWiIsImZpbGUiOiJzcmMvYXBwL3NlbGVjdGVkLXF1YWwtaW1nL2ltZy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmltZy13cmFwIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIG1hcmdpbjogMjBweDtcclxufVxyXG5cclxuLmltZy13cmFwIGltZyB7XHJcbiAgd2lkdGg6IDYwJTtcclxufVxyXG4iXX0= */");
-
-/***/ }),
-
-/***/ "./src/app/selected-qual-img/img.component.ts":
-/*!****************************************************!*\
-  !*** ./src/app/selected-qual-img/img.component.ts ***!
-  \****************************************************/
-/*! exports provided: ImgComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImgComponent", function() { return ImgComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-
-
-let ImgComponent = class ImgComponent {
-};
-tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
-], ImgComponent.prototype, "selectedPhoto", void 0);
-ImgComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-img',
-        template: `
-    <div class="img-wrap">
-      <img [src]="selectedPhoto" alt="selectedPhoto" />
-    </div>
-  `,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./img.component.css */ "./src/app/selected-qual-img/img.component.css")).default]
-    })
-], ImgComponent);
-
 
 
 /***/ }),
