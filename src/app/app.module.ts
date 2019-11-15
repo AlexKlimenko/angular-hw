@@ -1,20 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
-import { GalleryComponent } from './gallery/gallery.component';
-import { ImgComponent } from './selected-qual-img/img.component';
+import { FormsModule } from '@angular/forms';
+import { ToMorzeConverterPipe } from './pipes/to-morze-converter.pipe';
+import { DictionaryService } from './services/dictionary.service';
+import { ToLetterConverterPipe } from './pipes/to-letter-converter.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    GalleryComponent,
-    ImgComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
+  declarations: [AppComponent, ToMorzeConverterPipe, ToLetterConverterPipe],
+  imports: [BrowserModule, FormsModule],
+  providers: [DictionaryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
