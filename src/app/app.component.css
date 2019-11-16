@@ -19,8 +19,21 @@ body {
 
 .card {
   padding: 1rem;
-  border: #ccc 1px dotted;
+  border: #ccc 1px solid;
   margin: 0.7rem 0;
+  text-align: center;
+}
+
+.card p {
+  display: flex;
+  justify-content: space-between;
+}
+.card h3 {
+  margin-bottom: 5px;
+}
+
+hr {
+  margin-bottom: 10px;
 }
 
 input,

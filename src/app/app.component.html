@@ -1,3 +1,23 @@
-<h2>{{ headerText }}</h2>
-<app-img></app-img>
-<app-gallery></app-gallery>
+<div class="container">
+  <h1>{{ headerText }}</h1>
+  <div *ngIf="!loading; else loadingBlock">
+    <div *ngIf="countryList.length; else noCountries">
+      <div class="card" *ngFor="let country of countryList">
+        <h3>{{country.name}}</h3>
+        <hr>
+        <p>
+          <span>Capital: {{country.capital}}</span>
+          <span>Alpha Code: {{country.alpha3Code}}</span>
+          <span>Calling Code: {{country.callingCodes}}</span>
+          <span>Flag: <img [src]="country.flag" width="30" height="20"></span>
+        </p>
+      </div>
+    </div>
+    <ng-template>
+      <p>The`re no countries...</p>
+    </ng-template>
+  </div>
+  <ng-template #loadingBlock>
+    <p>Loading...</p>
+  </ng-template>
+</div>
