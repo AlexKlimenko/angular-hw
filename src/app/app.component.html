@@ -1,3 +1,8 @@
-<h2>{{ headerText }}</h2>
-<app-img></app-img>
-<app-gallery></app-gallery>
+<div class="wrapper" ondragstart="return false;" ondrop="return false;">
+  <app-header></app-header>
+  <app-developer-menu></app-developer-menu>
+  <article class="container">
+    <router-outlet></router-outlet>
+  </article>
+  <app-footer></app-footer>
+</div>

@@ -33,3 +33,12 @@ textarea {
   border: 1px solid #ccc;
   margin: 1.2rem 0;
 }
+.wrapper {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.container {
+  max-width: 1232px;
+  margin: auto;
+}

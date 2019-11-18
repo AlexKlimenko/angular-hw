@@ -1,0 +1,14 @@
+<div searchBox class="search-input">
+  <input type="search" placeholder="Search" [(ngModel)]="searchText" (ngModelChange)="onChange()"
+    (keydown.enter)="onSearch()" (click)="showHelper()" (blur)="unshowHelper()" />
+  <div toolButton class="search-btn" (click)="onSearch()">
+    <img src="assets/btn-search.png" alt="Settings" />
+  </div>
+  <div class="search-helper" *ngIf="clicked">
+    <ul>
+      <li *ngFor="let hintItem of hintList" (click)="onSelect(hintItem)">
+        {{ hintItem.text }}
+      </li>
+    </ul>
+  </div>
+</div>
