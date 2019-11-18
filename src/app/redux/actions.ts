@@ -1,3 +1,3 @@
 export default {
-  SELECTIMG: 'SELECTIMG'
+  SELECT_IMG: 'SELECT_IMG'
 };
