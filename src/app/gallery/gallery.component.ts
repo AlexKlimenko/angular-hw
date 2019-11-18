@@ -13,10 +13,10 @@ export class GalleryComponent implements OnInit, OnDestroy {
   public imageGallery: string[] = [];
   private listener: Subscription;
 
-  constructor(private service: ImageUpdateService) {}
+  constructor(private service: ImageUpdateService) { }
 
   public imageHandler(url: string) {
-    store.dispatch({ type: actions.SELECTIMG, payload: url });
+    store.dispatch({ type: actions.SELECT_IMG, payload: url });
   }
 
   public clickHandler(url: string) {
