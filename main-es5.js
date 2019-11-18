@@ -28,29 +28,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<h2>{{ headerText }}</h2>\r\n<app-img></app-img>\r\n<app-gallery></app-gallery>\r\n\r\n<!-- <h2>{{ headerText }}</h2>\r\n<app-img [selectedPhoto]=\"galleryImg\"></app-img>\r\n<app-gallery [photos]=\"photos\" (photoSrc)=\"handler($event)\"></app-gallery> -->\r\n");
-            /***/ 
-        }),
-        /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/gallery/galery.component.html": 
-        /*!*************************************************************************************!*\
-          !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/gallery/galery.component.html ***!
-          \*************************************************************************************/
-        /*! exports provided: default */
-        /***/ (function (module, __webpack_exports__, __webpack_require__) {
-            "use strict";
-            __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"gallery-wrap\">\r\n  <div class=\"gallery-item\" *ngFor=\"let galleryItem of imageGallery\">\r\n    <img [src]=\"galleryItem\" (click)=\"clickHandler(galleryItem)\" />\r\n  </div>\r\n</div>\r\n");
-            /***/ 
-        }),
-        /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/img/img.component.html": 
-        /*!******************************************************************************!*\
-          !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/img/img.component.html ***!
-          \******************************************************************************/
-        /*! exports provided: default */
-        /***/ (function (module, __webpack_exports__, __webpack_require__) {
-            "use strict";
-            __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"img-wrap\">\r\n  <img [src]=\"selectedImage\" alt=\"selectedImage\" />\r\n</div>\r\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n  <h1>{{ headerText }}</h1>\r\n  <div *ngIf=\"!loading; else loadingBlock\">\r\n    <div *ngIf=\"countryList.length; else noCountries\">\r\n      <div class=\"card\" *ngFor=\"let country of countryList\">\r\n        <h3>{{country.name}}</h3>\r\n        <hr>\r\n        <p>\r\n          <span>Capital: {{country.capital}}</span>\r\n          <span>Alpha Code: {{country.alpha3Code}}</span>\r\n          <span>Calling Code: {{country.callingCodes}}</span>\r\n          <span>Flag: <img [src]=\"country.flag\" width=\"30\" height=\"20\"></span>\r\n        </p>\r\n      </div>\r\n    </div>\r\n    <ng-template>\r\n      <p>The`re no countries...</p>\r\n    </ng-template>\r\n  </div>\r\n  <ng-template #loadingBlock>\r\n    <p>Loading...</p>\r\n  </ng-template>\r\n</div>");
             /***/ 
         }),
         /***/ "./node_modules/tslib/tslib.es6.js": 
@@ -361,7 +339,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("h2 {\r\n  text-align: center;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7QUFDcEIiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImgyIHtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuIl19 */");
+            /* harmony default export */ __webpack_exports__["default"] = ("* {\r\n  box-sizing: border-box;\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n\r\nbody {\r\n  font-size: 1rem;\r\n  line-height: 1.6;\r\n  background-color: #fff;\r\n  color: #333333;\r\n}\r\n\r\n.container {\r\n  max-width: 1000px;\r\n  margin: 0 auto;\r\n  padding-top: 1rem;\r\n}\r\n\r\n.card {\r\n  padding: 1rem;\r\n  border: #ccc 1px solid;\r\n  margin: 0.7rem 0;\r\n  text-align: center;\r\n}\r\n\r\n.card p {\r\n  display: flex;\r\n  justify-content: space-between;\r\n}\r\n\r\n.card h3 {\r\n  margin-bottom: 5px;\r\n}\r\n\r\nhr {\r\n  margin-bottom: 10px;\r\n}\r\n\r\ninput,\r\nselect,\r\ntextarea {\r\n  display: block;\r\n  width: 100%;\r\n  padding: 0.4rem;\r\n  font-size: 1.2rem;\r\n  border: 1px solid #ccc;\r\n  margin: 1.2rem 0;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxzQkFBc0I7RUFDdEIsU0FBUztFQUNULFVBQVU7QUFDWjs7QUFFQTtFQUNFLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsc0JBQXNCO0VBQ3RCLGNBQWM7QUFDaEI7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsY0FBYztFQUNkLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLGFBQWE7RUFDYixzQkFBc0I7RUFDdEIsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLGFBQWE7RUFDYiw4QkFBOEI7QUFDaEM7O0FBQ0E7RUFDRSxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxtQkFBbUI7QUFDckI7O0FBRUE7OztFQUdFLGNBQWM7RUFDZCxXQUFXO0VBQ1gsZUFBZTtFQUNmLGlCQUFpQjtFQUNqQixzQkFBc0I7RUFDdEIsZ0JBQWdCO0FBQ2xCIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIqIHtcclxuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG4gIG1hcmdpbjogMDtcclxuICBwYWRkaW5nOiAwO1xyXG59XHJcblxyXG5ib2R5IHtcclxuICBmb250LXNpemU6IDFyZW07XHJcbiAgbGluZS1oZWlnaHQ6IDEuNjtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmO1xyXG4gIGNvbG9yOiAjMzMzMzMzO1xyXG59XHJcblxyXG4uY29udGFpbmVyIHtcclxuICBtYXgtd2lkdGg6IDEwMDBweDtcclxuICBtYXJnaW46IDAgYXV0bztcclxuICBwYWRkaW5nLXRvcDogMXJlbTtcclxufVxyXG5cclxuLmNhcmQge1xyXG4gIHBhZGRpbmc6IDFyZW07XHJcbiAgYm9yZGVyOiAjY2NjIDFweCBzb2xpZDtcclxuICBtYXJnaW46IDAuN3JlbSAwO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG5cclxuLmNhcmQgcCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XHJcbn1cclxuLmNhcmQgaDMge1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxufVxyXG5cclxuaHIge1xyXG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XHJcbn1cclxuXHJcbmlucHV0LFxyXG5zZWxlY3QsXHJcbnRleHRhcmVhIHtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICB3aWR0aDogMTAwJTtcclxuICBwYWRkaW5nOiAwLjRyZW07XHJcbiAgZm9udC1zaXplOiAxLjJyZW07XHJcbiAgYm9yZGVyOiAxcHggc29saWQgI2NjYztcclxuICBtYXJnaW46IDEuMnJlbSAwO1xyXG59XHJcbiJdfQ== */");
             /***/ 
         }),
         /***/ "./src/app/app.component.ts": 
@@ -375,12 +353,31 @@
             /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function () { return AppComponent; });
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+            /* harmony import */ var _services_country_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/country.service */ "./src/app/services/country.service.ts");
             var AppComponent = /** @class */ (function () {
-                function AppComponent() {
-                    this.headerText = 'Homework_9';
+                function AppComponent(service) {
+                    this.service = service;
+                    this.headerText = 'Hw-10. Country Info';
+                    this.countryList = [];
+                    this.loading = false;
                 }
+                AppComponent.prototype.ngOnInit = function () {
+                    this.fetchCountiesInfo();
+                };
+                AppComponent.prototype.fetchCountiesInfo = function () {
+                    var _this = this;
+                    this.loading = true;
+                    this.service.fetchCountiesInfo()
+                        .subscribe(function (countries) {
+                        _this.countryList = countries;
+                        _this.loading = false;
+                    });
+                };
                 return AppComponent;
             }());
+            AppComponent.ctorParameters = function () { return [
+                { type: _services_country_service__WEBPACK_IMPORTED_MODULE_2__["CountryService"] }
+            ]; };
             AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
                     selector: 'app-root',
@@ -403,9 +400,8 @@
             /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
             /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-            /* harmony import */ var _gallery_gallery_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./gallery/gallery.component */ "./src/app/gallery/gallery.component.ts");
-            /* harmony import */ var _img_img_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./img/img.component */ "./src/app/img/img.component.ts");
-            /* harmony import */ var _services_image_update_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services/image-update.service */ "./src/app/services/image-update.service.ts");
+            /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+            /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
             var AppModule = /** @class */ (function () {
                 function AppModule() {
                 }
@@ -413,215 +409,53 @@
             }());
             AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-                    declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _gallery_gallery_component__WEBPACK_IMPORTED_MODULE_4__["GalleryComponent"], _img_img_component__WEBPACK_IMPORTED_MODULE_5__["ImgComponent"]],
-                    imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"]],
-                    providers: [_services_image_update_service__WEBPACK_IMPORTED_MODULE_6__["ImageUpdateService"]],
+                    declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]],
+                    imports: [
+                        _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
+                        _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
+                        _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"]
+                    ],
+                    providers: [],
                     bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
                 })
             ], AppModule);
             /***/ 
         }),
-        /***/ "./src/app/gallery/gallery.component.css": 
-        /*!***********************************************!*\
-          !*** ./src/app/gallery/gallery.component.css ***!
-          \***********************************************/
-        /*! exports provided: default */
+        /***/ "./src/app/services/country.service.ts": 
+        /*!*********************************************!*\
+          !*** ./src/app/services/country.service.ts ***!
+          \*********************************************/
+        /*! exports provided: CountryService */
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = (".gallery-wrap {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-around;\r\n  margin: 20px;\r\n}\r\n\r\n.gallery-img {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.gallery-wrap img {\r\n  width: 95%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ2FsbGVyeS9nYWxsZXJ5LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0VBQ2IsbUJBQW1CO0VBQ25CLDZCQUE2QjtFQUM3QixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsdUJBQXVCO0FBQ3pCOztBQUNBO0VBQ0UsVUFBVTtBQUNaIiwiZmlsZSI6InNyYy9hcHAvZ2FsbGVyeS9nYWxsZXJ5LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZ2FsbGVyeS13cmFwIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1hcm91bmQ7XHJcbiAgbWFyZ2luOiAyMHB4O1xyXG59XHJcblxyXG4uZ2FsbGVyeS1pbWcge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbn1cclxuLmdhbGxlcnktd3JhcCBpbWcge1xyXG4gIHdpZHRoOiA5NSU7XHJcbn1cclxuIl19 */");
-            /***/ 
-        }),
-        /***/ "./src/app/gallery/gallery.component.ts": 
-        /*!**********************************************!*\
-          !*** ./src/app/gallery/gallery.component.ts ***!
-          \**********************************************/
-        /*! exports provided: GalleryComponent */
-        /***/ (function (module, __webpack_exports__, __webpack_require__) {
-            "use strict";
-            __webpack_require__.r(__webpack_exports__);
-            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GalleryComponent", function () { return GalleryComponent; });
+            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CountryService", function () { return CountryService; });
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-            /* harmony import */ var _services_image_update_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/image-update.service */ "./src/app/services/image-update.service.ts");
-            /* harmony import */ var _redux_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../redux/store */ "./src/app/redux/store.ts");
-            /* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../redux/actions */ "./src/app/redux/actions.ts");
-            var GalleryComponent = /** @class */ (function () {
-                function GalleryComponent(service) {
-                    this.service = service;
-                    this.imageGallery = [];
+            /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+            /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+            /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+            var CountryService = /** @class */ (function () {
+                function CountryService(http) {
+                    this.http = http;
                 }
-                GalleryComponent.prototype.imageHandler = function (url) {
-                    _redux_store__WEBPACK_IMPORTED_MODULE_3__["default"].dispatch({ type: _redux_actions__WEBPACK_IMPORTED_MODULE_4__["default"].SELECTIMG, payload: url });
+                CountryService.prototype.fetchCountiesInfo = function () {
+                    var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]();
+                    params = params.append('fields', 'name;capital;alpha3Code;callingCodes;flag');
+                    return this.http.get('https://restcountries.eu/rest/v2/region/europe', { params: params })
+                        .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["delay"])(1000), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(function (error) {
+                        console.log(error.message);
+                        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(error);
+                    }));
                 };
-                GalleryComponent.prototype.clickHandler = function (url) {
-                    this.listener.unsubscribe();
-                    this.service.stopInterval();
-                    this.imageHandler(url);
-                    this.subscribe();
-                };
-                GalleryComponent.prototype.subscribe = function () {
-                    var _this = this;
-                    this.listener = this.service.getRandomData.subscribe(function (data) {
-                        _this.imageHandler(data);
-                    });
-                };
-                GalleryComponent.prototype.ngOnInit = function () {
-                    this.imageGallery = this.service.getData();
-                    this.imageHandler(this.imageGallery[0]);
-                    this.subscribe();
-                };
-                GalleryComponent.prototype.ngOnDestroy = function () {
-                    this.listener.unsubscribe();
-                };
-                return GalleryComponent;
+                return CountryService;
             }());
-            GalleryComponent.ctorParameters = function () { return [
-                { type: _services_image_update_service__WEBPACK_IMPORTED_MODULE_2__["ImageUpdateService"] }
+            CountryService.ctorParameters = function () { return [
+                { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
             ]; };
-            GalleryComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-                    selector: 'app-gallery',
-                    template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./galery.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/gallery/galery.component.html")).default,
-                    styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./gallery.component.css */ "./src/app/gallery/gallery.component.css")).default]
-                })
-            ], GalleryComponent);
-            /***/ 
-        }),
-        /***/ "./src/app/img/img.component.css": 
-        /*!***************************************!*\
-          !*** ./src/app/img/img.component.css ***!
-          \***************************************/
-        /*! exports provided: default */
-        /***/ (function (module, __webpack_exports__, __webpack_require__) {
-            "use strict";
-            __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = (".img-wrap {\r\n  display: flex;\r\n  justify-content: center;\r\n  margin: 20px;\r\n}\r\n\r\n.img-wrap img {\r\n  width: 60%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaW1nL2ltZy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBYTtFQUNiLHVCQUF1QjtFQUN2QixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxVQUFVO0FBQ1oiLCJmaWxlIjoic3JjL2FwcC9pbWcvaW1nLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaW1nLXdyYXAge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgbWFyZ2luOiAyMHB4O1xyXG59XHJcblxyXG4uaW1nLXdyYXAgaW1nIHtcclxuICB3aWR0aDogNjAlO1xyXG59XHJcbiJdfQ== */");
-            /***/ 
-        }),
-        /***/ "./src/app/img/img.component.ts": 
-        /*!**************************************!*\
-          !*** ./src/app/img/img.component.ts ***!
-          \**************************************/
-        /*! exports provided: ImgComponent */
-        /***/ (function (module, __webpack_exports__, __webpack_require__) {
-            "use strict";
-            __webpack_require__.r(__webpack_exports__);
-            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImgComponent", function () { return ImgComponent; });
-            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-            /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-            /* harmony import */ var _redux_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../redux/store */ "./src/app/redux/store.ts");
-            var ImgComponent = /** @class */ (function () {
-                function ImgComponent() {
-                }
-                ImgComponent.prototype.ngDoCheck = function () {
-                    var _this = this;
-                    _redux_store__WEBPACK_IMPORTED_MODULE_2__["default"].subscribe(function () {
-                        _this.selectedImage = _redux_store__WEBPACK_IMPORTED_MODULE_2__["default"].getState();
-                    });
-                };
-                return ImgComponent;
-            }());
-            ImgComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-                    selector: 'app-img',
-                    template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./img.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/img/img.component.html")).default,
-                    styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./img.component.css */ "./src/app/img/img.component.css")).default]
-                })
-            ], ImgComponent);
-            /***/ 
-        }),
-        /***/ "./src/app/redux/actions.ts": 
-        /*!**********************************!*\
-          !*** ./src/app/redux/actions.ts ***!
-          \**********************************/
-        /*! exports provided: default */
-        /***/ (function (module, __webpack_exports__, __webpack_require__) {
-            "use strict";
-            __webpack_require__.r(__webpack_exports__);
-            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-            /* harmony default export */ __webpack_exports__["default"] = ({
-                SELECTIMG: 'SELECTIMG'
-            });
-            /***/ 
-        }),
-        /***/ "./src/app/redux/reducer.ts": 
-        /*!**********************************!*\
-          !*** ./src/app/redux/reducer.ts ***!
-          \**********************************/
-        /*! exports provided: default */
-        /***/ (function (module, __webpack_exports__, __webpack_require__) {
-            "use strict";
-            __webpack_require__.r(__webpack_exports__);
-            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function () { return reducer; });
-            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-            /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actions */ "./src/app/redux/actions.ts");
-            var SELECTIMG = _actions__WEBPACK_IMPORTED_MODULE_1__["default"].SELECTIMG;
-            function reducer(state, action) {
-                if (state === void 0) { state = ''; }
-                switch (action.type) {
-                    case SELECTIMG:
-                        // tslint:disable-next-line:no-parameter-reassignment
-                        return action.payload;
-                    default:
-                        return state;
-                }
-            }
-            /***/ 
-        }),
-        /***/ "./src/app/redux/store.ts": 
-        /*!********************************!*\
-          !*** ./src/app/redux/store.ts ***!
-          \********************************/
-        /*! exports provided: default */
-        /***/ (function (module, __webpack_exports__, __webpack_require__) {
-            "use strict";
-            __webpack_require__.r(__webpack_exports__);
-            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-            /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-            /* harmony import */ var _reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./reducer */ "./src/app/redux/reducer.ts");
-            var store = Object(redux__WEBPACK_IMPORTED_MODULE_1__["createStore"])(_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]);
-            /* harmony default export */ __webpack_exports__["default"] = (store);
-            /***/ 
-        }),
-        /***/ "./src/app/services/image-update.service.ts": 
-        /*!**************************************************!*\
-          !*** ./src/app/services/image-update.service.ts ***!
-          \**************************************************/
-        /*! exports provided: ImageUpdateService */
-        /***/ (function (module, __webpack_exports__, __webpack_require__) {
-            "use strict";
-            __webpack_require__.r(__webpack_exports__);
-            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageUpdateService", function () { return ImageUpdateService; });
-            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-            /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-            var floor = Math.floor, random = Math.random;
-            var ImageUpdateService = /** @class */ (function () {
-                function ImageUpdateService() {
-                    var _this = this;
-                    this.data = [
-                        'assets/img/photo_1.jpg',
-                        'assets/img/photo_2.jpg',
-                        'assets/img/photo_3.jpg',
-                        'assets/img/photo_4.jpg'
-                    ];
-                    this.interval = null;
-                    this.getRandomData = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (emitter) {
-                        _this.interval = setInterval(function () {
-                            emitter.next(_this.data[floor(random() * 4)]);
-                            // tslint:disable-next-line:align
-                        }, 6000);
-                    });
-                }
-                ImageUpdateService.prototype.getData = function () {
-                    return this.data;
-                };
-                ImageUpdateService.prototype.stopInterval = function () {
-                    clearInterval(this.interval);
-                    this.interval = null;
-                };
-                return ImageUpdateService;
-            }());
+            CountryService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({ providedIn: 'root' })
+            ], CountryService);
             /***/ 
         }),
         /***/ "./src/environments/environment.ts": 
